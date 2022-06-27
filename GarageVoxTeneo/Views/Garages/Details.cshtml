@@ -1,0 +1,70 @@
+﻿@using GarageVoxTeneo.Models
+@model GarageDetail
+
+@{
+    ViewData["Title"] = "Garage details";
+}
+
+<h1>Garages details</h1>
+
+    <h2>@Model.Name</h2>
+                
+    <p>@Model.Address</p>
+
+
+<h3>Cars</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Model
+                        </th>
+                        <th>
+                            Year
+                        </th>
+                        <th>
+                            Color
+                        </th>
+                        <th>
+                            Engine
+                        </th>
+                        <th>
+                            Power
+                        </th>
+                        <th>
+                            Mileage
+                        </th>
+                        <th>
+                            RegistrationDate
+                        </th>
+                        <th>
+                           Price
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+        @foreach(var car in Model.Cars)
+        {
+                    <tr>
+                        <td>@car.Model</td>
+                        <td>@car.Year</td>
+                        <td>@car.Color</td>
+                        <td>@car.Engine</td>
+                        <td>@car.Power</td>
+                        <td>@car.Mileage</td>
+                        <td>@car.RegistrationDate</td>
+                        <td>@car.Price</td>
+                        <td>
+                            <a class ="text-primary " asp-controller="Garages" asp-action="addEdit" asp-route-id ="@car.IdCars" >
+                                <i class="bi bi-search"> go to details </i>
+                            </a>
+                        </td>
+                    </tr>
+        }
+                </tbody>
+            </table>
+
+

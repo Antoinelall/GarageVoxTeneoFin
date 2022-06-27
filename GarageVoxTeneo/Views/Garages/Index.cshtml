@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GarageVoxTeneo.Models.Garages>
+
+@{
+    ViewData["Title"] = "Garages list";
+}
+
+<h1>Garages list</h1>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdGarage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxCarsStock)
+            </th>
+            <th>
+                Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGarage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxCarsStock)
+            </td>
+
+            <td>
+                <a class ="text-primary " asp-controller="Garages" asp-action="Details" asp-route-id ="@item.IdGarage" >
+                    <i class="bi bi-search"> Détail </i>
+                </a>
+            </td>
+                                    
+        </tr>
+}
+    </tbody>
+</table>_
